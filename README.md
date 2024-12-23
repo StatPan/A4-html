@@ -1,67 +1,76 @@
 # A4-marp
 
-[Marp](https://marp.app/) CSS theme to do A4 presentations. Dark Mode, using Uncover Theme from Marp, and Atom One Dark Theme for code highlighting. 
+[Marp](https://marp.app/) CSS theme for creating A4 presentations with a focus on clarity and printing efficiency.
 
-The folder `.vscode` and the Marp plugin are mandaory to make it work.
+This repository provides a Light theme optimized for presentations and document-like PDFs. The setup ensures compatibility with VS Code and Marp.
 
-Assuming VS Code and [Marp for VS Code](https://github.com/marp-team/marp-vscode) are already installed:
+## Features
 
-- Clone this project
-- Open this entire folder in VS Code
-- Start writing your `.md` file using
+- A4 page layout for seamless printing and PDF generation.
+- Clean Light theme with customizable styles.
+- Easy setup with `.vscode/settings.json` for consistent rendering.
+- Printing-friendly CSS adjustments for reduced ink usage.
 
-You need to have the folder `.vscode` + `settings.json`
+## Prerequisites
 
-### My custom script to create a quick note ~ to add in `~/.bashrc` or `~/.zshrc`
+Before using this repository, ensure you have:
 
-```sh
+1. [VS Code](https://code.visualstudio.com/) installed.
+2. [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) extension installed.
+
+## Setup
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/StatPan/A4-marp.git
+   cd A4-marp
+   ```
+
+2. Open the folder in VS Code:
+   ```bash
+   code .
+   ```
+
+3. Start creating your Markdown file:
+   ```markdown
+   ---
+   marp: true
+   theme: a4-light
+   paginate: true
+   ---
+   ```
+
+## Quick Note Creation Script
+
+You can automate the creation of a new project folder with this script. Add it to your `~/.bashrc` or `~/.zshrc`:
+
+```bash
 function notes() {
-        mkdir "$1" && cd "$1" && mkdir .vscode
-        wget -q "https://raw.githubusercontent.com/stanfrbd/A4-marp/main/.vscode/settings.json"
-        mv settings.json .vscode
-        echo "---" >> "$1".md
-        echo "marp: true" >> "$1".md
-        echo "theme: a4-dark" >> "$1".md
-        echo "paginate: true" >> "$1".md
-        echo "---" >> "$1".md
-        echo "" >> "$1".md
-        date=$(date)
-        echo "<!-- $date -->" >> "$1".md
-        echo "" >> "$1".md
-        echo "# $1" >> "$1".md
-        wget -q "https://raw.githubusercontent.com/stanfrbd/A4-marp/main/a4-light.css"
-        wget -q "https://raw.githubusercontent.com/stanfrbd/A4-marp/main/a4-dark.css"
-        wget -q "https://raw.githubusercontent.com/stanfrbd/A4-marp/main/atom-one-dark.css"
-        code .
+    mkdir "$1" && cd "$1" && mkdir .vscode
+    wget -q "https://raw.githubusercontent.com/StatPan/A4-marp/main/.vscode/settings.json"
+    mv settings.json .vscode
+    echo "---" >> "$1".md
+    echo "marp: true" >> "$1".md
+    echo "theme: a4-light" >> "$1".md
+    echo "paginate: true" >> "$1".md
+    echo "---" >> "$1".md
+    echo "" >> "$1".md
+    date=$(date)
+    echo "<!-- $date -->" >> "$1".md
+    echo "" >> "$1".md
+    echo "# $1" >> "$1".md
+    wget -q "https://raw.githubusercontent.com/StatPan/A4-marp/main/a4-light.css"
+    code .
 }
 ```
+
 > Usage: `notes <project_name>`
-> 
-> This will a create a foler `<project_name>` containing a file `<project_name>.md` with the date inside. \
-> This will also create the folder `<project_name>/.vscode` and the custom A4 themes from this repo.
+>
+> This will create a folder `<project_name>` containing a file `<project_name>.md` with the date inside. It will also create the folder `<project_name>/.vscode` and apply the A4 Light theme.
 
-## Dark theme
+## Light Theme Usage
 
-Put
-
-```markdown
----
-marp: true
-theme: a4-dark
-paginate: true
----
-```
-
-at the beginning of the `.md` file.
-
-![image](https://user-images.githubusercontent.com/44167150/122885011-f82c0680-d33e-11eb-906d-a491db84a852.png)
-![image](https://user-images.githubusercontent.com/44167150/122885154-1abe1f80-d33f-11eb-8b36-4d9f9e529c08.png)
-
-
-
-## Light theme
-
-Put
+Include the following at the beginning of your `.md` file to use the Light theme:
 
 ```markdown
 ---
@@ -71,14 +80,11 @@ paginate: true
 ---
 ```
 
-at the beginning of the `.md` file.
+![Light Theme Example](https://user-images.githubusercontent.com/44167150/122885276-3a554800-d33f-11eb-8a3c-f89b563f4e60.png)
 
-![image](https://user-images.githubusercontent.com/44167150/122885276-3a554800-d33f-11eb-8a3c-f89b563f4e60.png)
-![image](https://user-images.githubusercontent.com/44167150/122885346-4b05be00-d33f-11eb-9e89-619c4dda125e.png)
+## Printing Efficiency
 
-## Printing - gain of ink
-
-> Use the light theme and change this in your `a4-light.css`
+To optimize for ink-saving when printing, you can adjust the following styles in `a4-light.css`:
 
 ```css
 pre {
@@ -86,7 +92,6 @@ pre {
     padding: 0.2em 0.5em;
     line-height: 1.15;
     overflow-x: auto;
-    /* background-color: #202228; */
     padding: 0.6em;
     word-break: break-all;
     white-space: pre-wrap !important;
@@ -97,11 +102,16 @@ pre {
 
 code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    /* color: #abb2bf; */
     color: black;
     overflow-x: auto;
 }
 ```
 
-![image](https://user-images.githubusercontent.com/44167150/127450871-21ef653f-e0bc-4554-b8de-8004a11c2b1a.png)
+![Printing Efficiency Example](./imgs/marp-example-theme.png)
+
+This ensures that your printed documents maintain clarity while conserving ink.
+
+---
+
+For any issues or feature requests, feel free to contribute or raise an issue in the repository.
 
