@@ -80,7 +80,7 @@ paginate: true
 ---
 ```
 
-![Light Theme Example](https://user-images.githubusercontent.com/44167150/122885276-3a554800-d33f-11eb-8a3c-f89b563f4e60.png)
+![Light Theme Example](./imgs/marp-example-theme.png)
 
 ## Printing Efficiency
 
@@ -106,10 +106,6 @@ code {
     overflow-x: auto;
 }
 ```
-
-![Printing Efficiency Example](./imgs/marp-example-theme.png)
-
-This ensures that your printed documents maintain clarity while conserving ink.
 
 ---
 
