@@ -1,0 +1,208 @@
+/* 공통 스타일 */
+body {
+    font-family: "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */ /* 페이지 자체를 가운데 정렬하지 않음 */
+  }
+  
+  .page {
+    margin-bottom: 20px;
+    padding: 20mm;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: left; /* 페이지 내용 기본 왼쪽 정렬 */
+  }
+  
+  /* 세로 레이아웃 (A4 portrait) */
+  .page.portrait {
+    width: 210mm; /* A4 너비 */
+    height: 297mm; /* A4 높이 */
+  }
+  
+  /* 가로 레이아웃 (A4 landscape) */
+  .page.landscape {
+    width: 297mm; /* A4 가로 너비 */
+    height: 210mm; /* A4 가로 높이 */
+  }
+  
+  /* 제목 및 본문 스타일 */
+  p { /* 기본 본문 스타일 */
+    font-size: 12pt; /* 본문 기준 크기 */
+    margin: 0 0 4mm 0;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; /* 모든 제목은 굵게 */
+    line-height: 1.3;
+  }
+  
+  h1 { /* 가장 중요한 제목 */
+    font-size: 22pt; /* 크기 증가 */
+    margin: 12mm 0 8mm 0;
+  }
+  
+  h2 { /* 주요 섹션 제목 */
+    font-size: 18pt; /* 크기 증가 */
+    margin: 10mm 0 6mm 0;
+  }
+  
+  h3 { /* 하위 섹션 제목 */
+    font-size: 15pt; /* 크기 증가 */
+    margin: 8mm 0 4mm 0;
+  }
+  
+  h4 { /* 더 작은 섹션 제목 */
+    font-size: 13pt; /* 본문보다 약간 크게 */
+    margin: 6mm 0 3mm 0;
+  }
+  
+  h5 { /* 더 작은 제목 */
+    font-size: 12pt; /* 본문과 동일, 굵기로 구분 */
+    margin: 5mm 0 2mm 0;
+  }
+  
+  h6 { /* 가장 작은 제목 */
+    font-size: 12pt; /* 본문과 동일, 굵기 및 색상으로 구분 */
+    margin: 4mm 0 2mm 0;
+    color: #444; /* h5보다 약간 더 연하게 */
+  }
+  
+  /* 기타 마크다운 요소 스타일 */
+  ul, ol {
+    margin: 4mm 0 4mm 5mm; /* 위아래 마진 및 왼쪽 들여쓰기 */
+    padding-left: 0; /* 기본 패딩 제거 */
+  }
+  
+  li {
+    margin-bottom: 2mm;
+  }
+  
+  blockquote {
+    margin: 4mm 0 4mm 5mm;
+    padding: 2mm 0 2mm 5mm;
+    border-left: 3px solid #ddd; /* 구분선 약간 두껍게 */
+    color: #555;
+    font-style: italic; /* 인용구는 이탤릭체로 */
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    background-color: #f0f0f0; /* 배경색 약간 조정 */
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  
+  pre {
+    background-color: #f0f0f0;
+    padding: 4mm;
+    margin: 5mm 0; /* 위아래 마진 약간 늘림 */
+    overflow-x: auto;
+    border: 1px solid #ccc; /* 테두리 색상 조정 */
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  
+  pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    font-size: 1em; /* pre 내부 code는 pre 폰트 크기 따름 */
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  em {
+    font-style: italic;
+  }
+  
+  a {
+    color: #0056b3; /* 링크 색상 조정 */
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: #003d80; /* 호버 색상 조정 */
+    text-decoration: none; /* 호버 시 밑줄 제거 */
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 5mm 0; /* 위아래 마진 약간 늘림 */
+    display: block;
+    border: 1px solid #eee; /* 이미지에 옅은 테두리 추가 */
+    padding: 1mm; /* 테두리와 이미지 사이 간격 */
+    box-sizing: border-box;
+  }
+  
+  hr { /* 수평선 스타일 추가 */
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 8mm 0;
+  }
+  
+  /* 인쇄용 스타일 */
+  @media print {
+    @page {
+      size: A4; /* 기본 페이지 크기 A4 */
+      margin: 20mm; /* 기본 인쇄 여백 */
+    }
+  
+    /* 각 페이지 클래스에 따른 페이지 방향 설정 */
+    .page.portrait {
+      page: portrait; /* @page 규칙과 연결 (이름은 임의로 지정 가능) */
+    }
+    .page.landscape {
+      page: landscape; /* @page 규칙과 연결 */
+    }
+  
+    @page portrait {
+      size: A4 portrait;
+    }
+    @page landscape {
+      size: A4 landscape;
+    }
+  
+    body { background: none; padding: 0; }
+    .page {
+      margin: 0 !important; /* 인쇄 시 외부 여백 강제 제거 */
+      box-shadow: none !important; /* 인쇄 시 그림자 강제 제거 */
+      page-break-after: always;
+      /* width & height는 @page 규칙으로 제어 */
+    }
+  }
+  
+  /* 테이블 스타일 */
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+  }
+  /* 필요하다면 th에 배경색을 추가할 수 있습니다. */
+  /* th {
+      background-color: gray;
+  } */
+
+/* 필요하다면 tr의 첫 번째 요소(td)만 스타일을 변경할 수 있습니다. */
+/* tbody tr td:first-child { */
+/*     background-color: #yourColor; */
+/* } */

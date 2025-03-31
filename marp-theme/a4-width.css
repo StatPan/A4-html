@@ -1,0 +1,154 @@
+/* @theme A4-width */
+@import "default";
+
+
+/* A4 가로형 레이아웃 */
+section {
+    width: 297mm;
+    height: 210mm;
+    font-size: 12pt;
+    font-family: 'Pretendard' Arial, Helvetica, sans-serif;
+    padding: 30mm 15mm 15mm 15mm;  /* 헤더 공간 확보 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    background: white;
+    position: relative;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* 개별 슬라이드마다 헤더 적용 가능하도록 설정 */
+.header-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20mm;
+    background: #1F3B61;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10mm;
+    font-size: 24pt;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* 헤더 곡선 효과 */
+.header-box::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #1F3B61, rgba(255, 255, 255, 0));
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* 페이지 번호 */
+section::after {
+    display: block;
+    bottom: 6mm;
+    content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+    font-size: 12pt;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 본문 제목 스타일 (좌측 정렬 유지) */
+h1, h2, h3, h4, h5 {
+    text-align: left;
+}
+
+h1 {
+    font-size: 2.2em;
+    color: #1F3B61;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.9em;
+    color: #333;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.6em;
+    color: #1F3B61;
+    font-weight: bold;
+}
+/* table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  table th {
+    word-wrap: break-word;
+    padding: 6px;
+    text-align: center;
+  }
+  table td {
+    font-size: 90%;
+  }
+  table th:nth-child(3), table td:nth-child(3),
+  table th:nth-child(4), table td:nth-child(4) {
+    width: auto;
+  } */
+/* 표 스타일 */
+
+table {
+    /* width: 100% !important;
+    height: 100% !important; */
+    border-collapse: collapse;
+    margin: 0px;
+    text-align: left;
+    table-layout: fixed;
+}
+
+th {
+    border: 2px solid black !important;
+    font-size: 18pt;
+    /*height: 2em;*/
+    text-align: center;
+    background: #1F3B61;
+    color: white;
+    font-weight: bold;
+    /*margin-top: 10px;*/
+    width: auto;
+}
+
+td {
+    width:auto;
+    border: 2px solid black !important;
+    /* padding: 8px; */
+    font-size: 14pt;
+    /* line-height: 2em; */
+    vertical-align: middle;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+/* 리스트 스타일 */
+ul {
+    padding-left: 20px;
+}
+
+ul li::before {
+    
+    color: #1F3B61;
+    font-weight: bold;
+}
+
+/* 본문 텍스트 크기 조정 */
+p, ul, ol, li {
+    font-size: 18pt;  /* 기존보다 크기를 키움 */
+    line-height: 1.5;  /* 가독성을 위해 줄 간격 추가 */
+}
